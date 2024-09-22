@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MN_StaticCodeAnalysis", "MN
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{9248CFEE-02E8-4C8C-920F-9C92A3B22975}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{4F0ED6CA-50A6-4543-B103-8706F0E3E836}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{75FAC706-35CE-4878-848B-2D8A2E266FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75FAC706-35CE-4878-848B-2D8A2E266FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75FAC706-35CE-4878-848B-2D8A2E266FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F0ED6CA-50A6-4543-B103-8706F0E3E836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F0ED6CA-50A6-4543-B103-8706F0E3E836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F0ED6CA-50A6-4543-B103-8706F0E3E836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F0ED6CA-50A6-4543-B103-8706F0E3E836}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

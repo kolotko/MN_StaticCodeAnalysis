@@ -1,11 +1,9 @@
 ﻿namespace MNStaticCodeAnalysis
 {
-    using System.Globalization;
-
     public class Test
     {
+        private const string _xxxx = "sd";
 
-        private const string xxxxxx = "sd";
         public Test()
         {
             Xd();
@@ -21,7 +19,7 @@
 
             int i = 1;
             Console.WriteLine(i);
-            Console.WriteLine(xxxxxx);
+            Console.WriteLine(_xxxx);
             try
             {
                 await Task.Delay(0);
