@@ -2,7 +2,7 @@
 {
     public class Test
     {
-        private const string _xxxx = "sd";
+        private const string c_xxxx = "sd";
 
         public Test()
         {
@@ -16,10 +16,9 @@
             {
                 Xd2();
             }
-
-            int i = 1;
+            var i = 1;
             Console.WriteLine(i);
-            Console.WriteLine(_xxxx);
+            Console.WriteLine(c_xxxx);
             try
             {
                 await Task.Delay(0);
@@ -28,7 +27,6 @@
             {
                 Console.WriteLine(exz.ToString());
             }
-
             using HttpClient x = new();
         }
 
@@ -36,8 +34,8 @@
         {
             await Task.Delay(0);
 
-            string uuu = "";
-            for (int i = 0; i < 10; i++)
+            var uuu = "";
+            for (var i = 0; i < 10; i++)
             {
                 uuu += "essa";
             }
