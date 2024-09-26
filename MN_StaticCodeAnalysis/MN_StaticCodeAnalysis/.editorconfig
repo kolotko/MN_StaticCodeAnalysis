@@ -1,8 +1,5 @@
 root = true
 
-# All files
-#[*]
-
 # C# files
 [*.cs]
 
@@ -554,8 +551,8 @@ csharp_style_prefer_readonly_struct = true:error
 csharp_style_prefer_readonly_struct_member = true:error
 
 # New line preferences
-dotnet_style_allow_multiple_blank_lines_experimental = true:error
-dotnet_style_allow_statement_immediately_after_block_experimental = true:error
+dotnet_style_allow_multiple_blank_lines_experimental = false:error
+dotnet_style_allow_statement_immediately_after_block_experimental = false:error
 csharp_style_allow_embedded_statements_on_same_line_experimental = true:error
 csharp_style_allow_blank_lines_between_consecutive_braces_experimental = true:error
 csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = true:error

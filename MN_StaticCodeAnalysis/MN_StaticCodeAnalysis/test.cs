@@ -6,31 +6,36 @@
 
         public Test()
         {
-            Xd();
         }
 
         //async void do wykrywania
-        private static async void Xd()
+        private static async Task Xd(CancellationToken ct)
         {
+            var tes = "xxx";
+            Console.WriteLine(tes);
             if (true)
             {
-                Xd2();
+                await Xd2();
             }
+
             var i = 1;
             Console.WriteLine(i);
             Console.WriteLine(c_xxxx);
             try
             {
-                await Task.Delay(0);
+                await Task.Delay(0, ct);
             }
             catch (Exception exz)
             {
                 Console.WriteLine(exz.ToString());
             }
+
             using HttpClient x = new();
+            var uuu = await x.GetAsync(new Uri(c_xxxx), cancellationToken: ct);
+            Xd3();
         }
 
-        private static async void Xd2()
+        private static async Task Xd2()
         {
             await Task.Delay(0);
 
@@ -38,6 +43,17 @@
             for (var i = 0; i < 10; i++)
             {
                 uuu += "essa";
+            }
+        }
+
+        private static void Xd3()
+        {
+            var words = new[] { "foo", "ddd", "baz" };
+            var actions = new List<Action>();
+
+            foreach(var word in words)
+            {
+                actions.Add(() => Console.WriteLine(word));
             }
         }
     }
