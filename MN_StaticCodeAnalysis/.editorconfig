@@ -491,7 +491,7 @@ csharp_using_directive_placement = outside_namespace:error
 # Code-block preferences
 csharp_prefer_simple_using_statement = true:error
 csharp_prefer_braces = true:error
-csharp_style_namespace_declarations = block_scoped:error
+csharp_style_namespace_declarations = file_scoped:error
 csharp_style_prefer_method_group_conversion = true:error
 csharp_style_prefer_top_level_statements = true:error
 csharp_style_prefer_primary_constructors = true:error
