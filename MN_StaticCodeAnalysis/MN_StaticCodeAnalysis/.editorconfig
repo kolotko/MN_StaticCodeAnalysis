@@ -89,7 +89,7 @@ dotnet_diagnostic.CA1511.severity = error
 dotnet_diagnostic.CA1512.severity = error
 dotnet_diagnostic.CA1513.severity = error
 dotnet_diagnostic.CA1700.severity = error
-dotnet_diagnostic.CA1707.severity = error
+dotnet_diagnostic.CA1707.severity = none
 dotnet_diagnostic.CA1708.severity = error
 dotnet_diagnostic.CA1710.severity = error
 dotnet_diagnostic.CA1711.severity = error
@@ -457,7 +457,7 @@ dotnet_naming_style.c_camelcase.required_suffix =
 dotnet_naming_style.c_camelcase.word_separator =
 dotnet_naming_style.c_camelcase.capitalization = camel_case
 
-dotnet_naming_style.cc_pascalcase.required_prefix = C_
+dotnet_naming_style.cc_pascalcase.required_prefix = C
 dotnet_naming_style.cc_pascalcase.required_suffix =
 dotnet_naming_style.cc_pascalcase.word_separator =
 dotnet_naming_style.cc_pascalcase.capitalization = pascal_case
@@ -477,7 +477,7 @@ dotnet_naming_style.s_camelcase.required_suffix =
 dotnet_naming_style.s_camelcase.word_separator =
 dotnet_naming_style.s_camelcase.capitalization = camel_case
 
-dotnet_naming_style.ss_pascalcase.required_prefix = S_
+dotnet_naming_style.ss_pascalcase.required_prefix = S
 dotnet_naming_style.ss_pascalcase.required_suffix =
 dotnet_naming_style.ss_pascalcase.word_separator =
 dotnet_naming_style.ss_pascalcase.capitalization = pascal_case
@@ -600,7 +600,7 @@ tab_width = 4
 
 # Indentation preferences
 csharp_indent_block_contents = true
-csharp_indent_braces = true
+csharp_indent_braces = false
 csharp_indent_case_contents = true
 csharp_indent_case_contents_when_block = true
 csharp_indent_labels = one_less_than_current
