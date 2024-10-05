@@ -15,12 +15,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MN_StaticCodeAnalysis.Tests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MN_StaticCodeAnalysis.FunctionalTests", "MN_StaticCodeAnalysis.FunctionalTests\MN_StaticCodeAnalysis.FunctionalTests.csproj", "{97B34932-5806-48FD-90D5-800AD19EE2EC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "..\build\_build.csproj", "{A3AE1D79-AD20-4115-B1ED-347BAFF742BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3AE1D79-AD20-4115-B1ED-347BAFF742BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3AE1D79-AD20-4115-B1ED-347BAFF742BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13F14613-35C2-4C8C-8B59-5946E0EE6524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13F14613-35C2-4C8C-8B59-5946E0EE6524}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13F14613-35C2-4C8C-8B59-5946E0EE6524}.Release|Any CPU.ActiveCfg = Release|Any CPU

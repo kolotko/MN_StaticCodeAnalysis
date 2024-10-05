@@ -8,7 +8,7 @@ public class EndpointsTest
     {
         ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true
     };
-    private static readonly HttpClient s_httpClient = new (s_clientHandler) {BaseAddress = new("http://localhost:60446")};
+    private static readonly HttpClient s_httpClient = new (s_clientHandler) {BaseAddress = new("http://localhost:5243")};
 
     [Fact]
     public async Task ListPersons()
