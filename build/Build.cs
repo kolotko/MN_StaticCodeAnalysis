@@ -36,7 +36,8 @@ class Build : NukeBuild
     Target Clean => _ => _
         .Executes(() =>
         {
-            DotNetClean();
+            Log.Information(RootDirectory);
+            // DotNetClean();
             // Git("status");
             // DotNetPack()
             // DotNetPublish()
@@ -70,13 +71,14 @@ class Build : NukeBuild
         });
     
     Target StartApi => _ => _
+        .DependsOn(UnitTests)
         .Executes(() =>
         {
             ApiProcess = ProcessTasks.StartProcess("dotnet", "run", RootDirectory / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis.Api");
         });
     
     Target FunctionalTests => _ => _
-        .DependsOn(UnitTests, StartApi)
+        .DependsOn(StartApi)
         .Triggers(StopApi)
         .Executes(() =>
         {

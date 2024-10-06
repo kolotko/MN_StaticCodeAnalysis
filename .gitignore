@@ -1,5 +1,6 @@
 obj/
 .idea/
 .vs/
+.nuke/temp
 bin/
 PublishProfiles/
