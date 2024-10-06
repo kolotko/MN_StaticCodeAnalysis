@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Nuke.Common;
 using Nuke.Common.CI;
+using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.Execution;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
@@ -14,6 +15,7 @@ using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 
+[GitHubActions("build-and-test", GitHubActionsImage.UbuntuLatest, OnPushBranches = new []{"master"})]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -34,7 +36,10 @@ class Build : NukeBuild
     Target Clean => _ => _
         .Executes(() =>
         {
-            Git("status");
+            DotNetClean();
+            // Git("status");
+            // DotNetPack()
+            // DotNetPublish()
         });
 
     Target Restore => _ => _
