@@ -65,7 +65,7 @@ class Build : NukeBuild
         .Executes(() =>
         {
             DotNetTest(s => s
-                .SetProjectFile(RootDirectory / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis.Tests")
+                .SetProjectFile(RootDirectory / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis.Tests")
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
