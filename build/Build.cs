@@ -92,6 +92,7 @@ class Build : NukeBuild
             var testProject = Solution.AllProjects.First(x => x.Name == "MN_StaticCodeAnalysis.Tests");
             DotNetTest(s => s
                 .SetProjectFile(testProject)
+                .SetConfiguration(Configuration)
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
@@ -112,6 +113,7 @@ class Build : NukeBuild
             var functionalTestsProject = Solution.AllProjects.First(x => x.Name == "MN_StaticCodeAnalysis.FunctionalTests");
             DotNetTest(s => s
                 .SetProjectFile(functionalTestsProject)
+                .SetConfiguration(Configuration)
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
