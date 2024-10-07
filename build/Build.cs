@@ -16,7 +16,7 @@ using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 
-[GitHubActions("build-and-test", GitHubActionsImage.WindowsLatest, OnPushBranches = new []{"master"})]
+[GitHubActions("build-and-test", GitHubActionsImage.UbuntuLatest, OnPushBranches = new []{"master"})]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -60,33 +60,9 @@ class Build : NukeBuild
                 .SetConfiguration(Configuration)
                 .EnableNoRestore());
         });
-    
-    Target PrintFolderContent => _ => _
-        .DependsOn(Compile)
-        .Executes(() =>
-        {
-            // var currentDirectory = Directory.GetCurrentDirectory();
-            // Log.Information($"Current Directory: {currentDirectory}");
-            //
-            // // Wyświetlenie plików
-            // var files = Directory.GetFiles(currentDirectory);
-            // Log.Information("Files:");
-            // foreach (var file in files)
-            // {
-            //     Log.Information(file);
-            // }
-            //
-            // // Wyświetlenie podkatalogów
-            // var directories = Directory.GetDirectories(currentDirectory);
-            // Log.Information("Directories:");
-            // foreach (var dir in directories)
-            // {
-            //     Log.Information(dir);
-            // }
-        });
 
     Target UnitTests => _ => _
-        .DependsOn(PrintFolderContent)
+        .DependsOn(Compile)
         .Executes(() =>
         {
             var testProject = Solution.AllProjects.First(x => x.Name == "MN_StaticCodeAnalysis.Tests");
