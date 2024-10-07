@@ -16,7 +16,7 @@ using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 
-[GitHubActions("build-and-test", GitHubActionsImage.WindowsLatest, OnPushBranches = new []{"master"})]
+[GitHubActions("build-and-test", GitHubActionsImage.UbuntuLatest, OnPushBranches = new []{"master"})]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -65,7 +65,7 @@ class Build : NukeBuild
         .DependsOn(Compile)
         .Executes(() =>
         {
-            var currentDirectory = Directory.GetCurrentDirectory() + "/MN_StaticCodeAnalysis.Tests";
+            var currentDirectory = Directory.GetCurrentDirectory();
             Log.Information($"Current Directory: {currentDirectory}");
 
             // Wyświetlenie plików
