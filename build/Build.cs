@@ -65,7 +65,7 @@ class Build : NukeBuild
         .DependsOn(Compile)
         .Executes(() =>
         {
-            var currentDirectory = Directory.GetCurrentDirectory() + "/MN_StaticCodeAnalysis.Tests/bin/Debug/net8.0";
+            var currentDirectory = Directory.GetCurrentDirectory() + "/MN_StaticCodeAnalysis.Tests";
             Log.Information($"Current Directory: {currentDirectory}");
 
             // Wyświetlenie plików
