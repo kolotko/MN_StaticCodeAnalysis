@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using Nuke.Common;
 using Nuke.Common.CI;
@@ -36,7 +37,7 @@ class Build : NukeBuild
     Target Clean => _ => _
         .Executes(() =>
         {
-            Log.Information(RootDirectory);
+            // Log.Information(RootDirectory);
             // DotNetClean();
             // Git("status");
             // DotNetPack()
@@ -59,15 +60,39 @@ class Build : NukeBuild
                 .SetConfiguration(Configuration)
                 .EnableNoRestore());
         });
-
-    Target UnitTests => _ => _
+    
+    Target PrintFolderContent => _ => _
         .DependsOn(Compile)
         .Executes(() =>
         {
             DotNetTest(s => s
-                .SetProjectFile(RootDirectory / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis.Tests")
+                .SetProjectFile(RootDirectory / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis.Tests")
                 .EnableNoRestore()
                 .EnableNoBuild());
+        });
+
+    Target UnitTests => _ => _
+        .DependsOn(PrintFolderContent)
+        .Executes(() =>
+        {
+            var currentDirectory = Directory.GetCurrentDirectory() + "/MN_StaticCodeAnalysis.Tests/bin/Debug/net8.0";
+            Log.Information($"Current Directory: {currentDirectory}");
+
+            // Wyświetlenie plików
+            var files = Directory.GetFiles(currentDirectory);
+            Log.Information("Files:");
+            foreach (var file in files)
+            {
+                Log.Information(file);
+            }
+
+            // Wyświetlenie podkatalogów
+            var directories = Directory.GetDirectories(currentDirectory);
+            Log.Information("Directories:");
+            foreach (var dir in directories)
+            {
+                Log.Information(dir);
+            }
         });
     
     Target StartApi => _ => _
