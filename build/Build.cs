@@ -16,7 +16,7 @@ using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 
-[GitHubActions("build-and-test", GitHubActionsImage.UbuntuLatest, OnPushBranches = new []{"master"})]
+[GitHubActions("build-and-test", GitHubActionsImage.WindowsLatest, OnPushBranches = new []{"master"}, ImportSecrets = new[] { nameof(ExampleSecret) })]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -29,6 +29,8 @@ class Build : NukeBuild
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
+    
+    [Parameter] [Secret] readonly string ExampleSecret;
 
     [Solution] readonly Solution Solution;
     [PathVariable] readonly Tool Git;
@@ -37,6 +39,7 @@ class Build : NukeBuild
     Target Clean => _ => _
         .Executes(() =>
         {
+            Log.Information(ExampleSecret);
             // Log.Information(RootDirectory);
             // DotNetClean();
             // Git("status");
