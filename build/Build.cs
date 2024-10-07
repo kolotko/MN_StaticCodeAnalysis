@@ -65,32 +65,33 @@ class Build : NukeBuild
         .DependsOn(Compile)
         .Executes(() =>
         {
-            var currentDirectory = Directory.GetCurrentDirectory();
-            Log.Information($"Current Directory: {currentDirectory}");
-
-            // Wyświetlenie plików
-            var files = Directory.GetFiles(currentDirectory);
-            Log.Information("Files:");
-            foreach (var file in files)
-            {
-                Log.Information(file);
-            }
-
-            // Wyświetlenie podkatalogów
-            var directories = Directory.GetDirectories(currentDirectory);
-            Log.Information("Directories:");
-            foreach (var dir in directories)
-            {
-                Log.Information(dir);
-            }
+            // var currentDirectory = Directory.GetCurrentDirectory();
+            // Log.Information($"Current Directory: {currentDirectory}");
+            //
+            // // Wyświetlenie plików
+            // var files = Directory.GetFiles(currentDirectory);
+            // Log.Information("Files:");
+            // foreach (var file in files)
+            // {
+            //     Log.Information(file);
+            // }
+            //
+            // // Wyświetlenie podkatalogów
+            // var directories = Directory.GetDirectories(currentDirectory);
+            // Log.Information("Directories:");
+            // foreach (var dir in directories)
+            // {
+            //     Log.Information(dir);
+            // }
         });
 
     Target UnitTests => _ => _
         .DependsOn(PrintFolderContent)
         .Executes(() =>
         {
+            var testProject = Solution.AllProjects.First(x => x.Name == "MN_StaticCodeAnalysis.Tests");
             DotNetTest(s => s
-                .SetProjectFile(RootDirectory / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis.Tests")
+                .SetProjectFile(testProject)
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
@@ -99,7 +100,8 @@ class Build : NukeBuild
         .DependsOn(UnitTests)
         .Executes(() =>
         {
-            ApiProcess = ProcessTasks.StartProcess("dotnet", "run", RootDirectory / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis.Api");
+            var apiProject = Solution.AllProjects.First(x => x.Name == "MN_StaticCodeAnalysis.Api");
+            ApiProcess = ProcessTasks.StartProcess("dotnet", "run", apiProject.Directory);
         });
     
     Target FunctionalTests => _ => _
@@ -107,8 +109,9 @@ class Build : NukeBuild
         .Triggers(StopApi)
         .Executes(() =>
         {
+            var functionalTestsProject = Solution.AllProjects.First(x => x.Name == "MN_StaticCodeAnalysis.FunctionalTests");
             DotNetTest(s => s
-                .SetProjectFile(RootDirectory / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis.FunctionalTests")
+                .SetProjectFile(functionalTestsProject)
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
