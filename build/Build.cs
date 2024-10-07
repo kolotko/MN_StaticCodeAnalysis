@@ -65,16 +65,6 @@ class Build : NukeBuild
         .DependsOn(Compile)
         .Executes(() =>
         {
-            DotNetTest(s => s
-                .SetProjectFile(RootDirectory / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis.Tests")
-                .EnableNoRestore()
-                .EnableNoBuild());
-        });
-
-    Target UnitTests => _ => _
-        .DependsOn(PrintFolderContent)
-        .Executes(() =>
-        {
             var currentDirectory = Directory.GetCurrentDirectory() + "/MN_StaticCodeAnalysis.Tests/bin/Debug/net8.0";
             Log.Information($"Current Directory: {currentDirectory}");
 
@@ -93,6 +83,16 @@ class Build : NukeBuild
             {
                 Log.Information(dir);
             }
+        });
+
+    Target UnitTests => _ => _
+        .DependsOn(PrintFolderContent)
+        .Executes(() =>
+        {
+            DotNetTest(s => s
+                .SetProjectFile(RootDirectory / "MN_StaticCodeAnalysis" / "MN_StaticCodeAnalysis.Tests")
+                .EnableNoRestore()
+                .EnableNoBuild());
         });
     
     Target StartApi => _ => _
