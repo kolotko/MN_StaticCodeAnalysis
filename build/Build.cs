@@ -101,20 +101,19 @@ class Build : NukeBuild
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
-    
+
+    // TODO: test
     Target StopApi => _ => _
         .Executes(() =>
         {
+            // BUG: test
             ApiProcess.Kill();
+            throw new NotImplementedException();
         });
     
     Target RunTests => _ => _.DependsOn(FunctionalTests);
 }
 
 
-// omów todo
-//może wyświetlić pełny projekt z danego komitu - show repository at revision
-// łączenie komitów
-
-// wybierając z listy 2 komity można pokazać różnice między nimi 
-// można porównac brancze
+// łączenie komitów sd
+// merge request 
