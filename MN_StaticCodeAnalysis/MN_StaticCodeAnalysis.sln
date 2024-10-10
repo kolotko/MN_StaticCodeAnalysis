@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MN_StaticCodeAnalysis.Funct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "..\build\_build.csproj", "{A3AE1D79-AD20-4115-B1ED-347BAFF742BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MN_StaticCodeAnalysis.LogicForTestCoverage", "MN_StaticCodeAnalysis.LogicForTestCoverage\MN_StaticCodeAnalysis.LogicForTestCoverage.csproj", "{9239D26F-4869-4DF6-8098-644A1BB05DF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{97B34932-5806-48FD-90D5-800AD19EE2EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97B34932-5806-48FD-90D5-800AD19EE2EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97B34932-5806-48FD-90D5-800AD19EE2EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9239D26F-4869-4DF6-8098-644A1BB05DF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9239D26F-4869-4DF6-8098-644A1BB05DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9239D26F-4869-4DF6-8098-644A1BB05DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9239D26F-4869-4DF6-8098-644A1BB05DF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

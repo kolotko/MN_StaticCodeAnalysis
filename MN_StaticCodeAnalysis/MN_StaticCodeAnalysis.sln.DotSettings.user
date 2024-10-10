@@ -3,5 +3,6 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::97B34932-5806-48FD-90D5-800AD19EE2EC::net8.0::MN_StaticCodeAnalysis.FunctionalTests.EndpointsTest.ListPersons&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::97B34932-5806-48FD-90D5-800AD19EE2EC::net8.0::MN_StaticCodeAnalysis.FunctionalTests.EndpointsTest.GetPiotr&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7FC77B44-E8A7-46CE-AA3B-C2397515D147::net8.0::MN_StaticCodeAnalysis.Tests.MathematicalOperationstest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

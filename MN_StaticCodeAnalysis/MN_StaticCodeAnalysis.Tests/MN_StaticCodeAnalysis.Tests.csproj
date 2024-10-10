@@ -22,4 +22,8 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\MN_StaticCodeAnalysis.LogicForTestCoverage\MN_StaticCodeAnalysis.LogicForTestCoverage.csproj" />
+    </ItemGroup>
+
 </Project>

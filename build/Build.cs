@@ -9,6 +9,7 @@ using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
+using Nuke.Common.Tools.ReportGenerator;
 using Nuke.Common.Utilities.Collections;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 using Serilog;
@@ -16,7 +17,11 @@ using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 
-[GitHubActions("build-and-test", GitHubActionsImage.WindowsLatest, OnPushBranches = new []{"master"}, ImportSecrets = new[] { nameof(ExampleSecret) })]
+[GitHubActions(
+    "build-and-test", 
+    GitHubActionsImage.WindowsLatest, 
+    OnPushBranches = new []{"master"}, 
+    ImportSecrets = new[] { nameof(ExampleSecret) })]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -105,3 +110,11 @@ class Build : NukeBuild
     
     Target RunTests => _ => _.DependsOn(FunctionalTests);
 }
+
+
+// omów todo
+//może wyświetlić pełny projekt z danego komitu - show repository at revision
+// łączenie komitów
+
+// wybierając z listy 2 komity można pokazać różnice między nimi 
+// można porównac brancze
