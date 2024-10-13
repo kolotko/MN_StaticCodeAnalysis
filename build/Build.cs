@@ -108,12 +108,8 @@ class Build : NukeBuild
         {
             // BUG: test
             ApiProcess.Kill();
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
         });
     
     Target RunTests => _ => _.DependsOn(FunctionalTests);
 }
-
-
-// łączenie komitów sd
-// merge request 
