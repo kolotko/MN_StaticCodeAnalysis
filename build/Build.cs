@@ -81,28 +81,28 @@ class Build : NukeBuild
                 .EnableNoBuild());
         });
     
-    Target StartApi => _ => _
-        .DependsOn(UnitTests)
-        .Executes(() =>
-        {
-            var apiProject = Solution.AllProjects.First(x => x.Name == "MN_StaticCodeAnalysis.Api");
-            ApiProcess = ProcessTasks.StartProcess("dotnet", "run", apiProject.Directory);
-        });
+    // uruchomienie api i przeprowadzenie testów lokalnie
+    // Target StartApi => _ => _
+    //     .DependsOn(UnitTests)
+    //     .Executes(() =>
+    //     {
+    //         var apiProject = Solution.AllProjects.First(x => x.Name == "MN_StaticCodeAnalysis.Api");
+    //         ApiProcess = ProcessTasks.StartProcess("dotnet", "run", apiProject.Directory);
+    //     });
+    //
+    // Target FunctionalTests => _ => _
+    //     .DependsOn(StartApi)
+    //     .Triggers(StopApi)
+    //     .Executes(() =>
+    //     {
+    //         var functionalTestsProject = Solution.AllProjects.First(x => x.Name == "MN_StaticCodeAnalysis.FunctionalTests");
+    //         DotNetTest(s => s
+    //             .SetProjectFile(functionalTestsProject)
+    //             .SetConfiguration(Configuration)
+    //             .EnableNoRestore()
+    //             .EnableNoBuild());
+    //     });
     
-    Target FunctionalTests => _ => _
-        .DependsOn(StartApi)
-        .Triggers(StopApi)
-        .Executes(() =>
-        {
-            var functionalTestsProject = Solution.AllProjects.First(x => x.Name == "MN_StaticCodeAnalysis.FunctionalTests");
-            DotNetTest(s => s
-                .SetProjectFile(functionalTestsProject)
-                .SetConfiguration(Configuration)
-                .EnableNoRestore()
-                .EnableNoBuild());
-        });
-
-    // TODO: test
     Target StopApi => _ => _
         .Executes(() =>
         {
@@ -111,5 +111,6 @@ class Build : NukeBuild
             // throw new NotImplementedException();
         });
     
-    Target RunTests => _ => _.DependsOn(FunctionalTests);
+    // Target RunTests => _ => _.DependsOn(FunctionalTests);
+    Target RunTests => _ => _.DependsOn(UnitTests);
 }

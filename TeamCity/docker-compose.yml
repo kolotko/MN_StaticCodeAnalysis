@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  server:
+    image: jetbrains/teamcity-server:latest
+    ports:
+      - "8112:8111"
+    volumes:
+      - teamcity_server_data:/data/teamcity_server/datadir
+      - teamcity_server_logs:/opt/teamcity/logs
+
+  agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - SERVER_URL=http://server:8111
+      - TEAMCITY_SERVER_MEM_OPTS=-Xmx2g -XX:ReservedCodeCacheSize=350m
+    depends_on:
+      - server
+    volumes:
+      - teamcity_agent_data:/data/teamcity_agent
+
+  # agent:
+  #   image: jetbrains/teamcity-agent:latest
+  #   environment:
+  #     - SERVER_URL=http://server:8111
+  #     - TEAMCITY_SERVER_MEM_OPTS=-Xmx2g -XX:ReservedCodeCacheSize=350m
+  #   depends_on:
+  #     - server
+  #   volumes:
+  #     - teamcity_agent_data:/data/teamcity_agent
+
+volumes:
+  teamcity_server_data:
+  teamcity_server_logs:
+  teamcity_agent_data:
+
+#   admin
+#   Komputer11.
