@@ -78,7 +78,7 @@ class Build : NukeBuild
                 .SetProjectFile(testProject)
                 .SetConfiguration(Configuration)
                 .SetProcessArgumentConfigurator(args => args
-                    .Add("--logger:teamcity")
+                    // .Add("--logger:teamcity")
                 )
                 .EnableNoRestore()
                 .EnableNoBuild());
