@@ -84,7 +84,7 @@ class Build : NukeBuild
             DotNetTest(s => s
                 .SetProjectFile(testProject)
                 .SetConfiguration(Configuration)
-                // .AddLoggers($"trx;LogFileName={TestResultFolder}/test-results.trx")
+                .AddLoggers($"trx;LogFileName={TestResultFolder}/test-results.trx")
                 .AddLoggers($"teamcity")
                 // .SetProcessArgumentConfigurator(args => args
                 //     .Add("/p:CollectCoverage=true")
