@@ -84,19 +84,11 @@ class Build : NukeBuild
             DotNetTest(s => s
                 .SetProjectFile(testProject)
                 .SetConfiguration(Configuration)
-                .AddLoggers($"trx;LogFileName={TestResultFolder}/test-results.trx")
-                .SetProcessArgumentConfigurator(args => args
-                    // .Add("/p:CollectCoverage=true")
-                    // .Add("/p:CoverletOutputFormat=cobertura")
-                    // .Add("/maxcpucount:1")
-                    // .Add($"/p:MergeWith={TestCoverageDirectory}/coverage.temp.json")
-                    // .Add($"/p:CoverletOutput={TestCoverageDirectory}/coverage.temp.json")
-                    // .Add($"/p:CoverletOutput={TestCoverageDirectory}/coverage.xml")
-                    // .Add("/p:CoverletOutputFormat=cobertura")
-                    // .Add("/p:Threshold=90")
-                    // .Add("/p:ThresholdType=line")
-                    // .Add($"/p:Include=\"{TestedModules}\"")
-                    )
+                // .AddLoggers($"trx;LogFileName={TestResultFolder}/test-results.trx")
+                .AddLoggers($"teamcity")
+                // .SetProcessArgumentConfigurator(args => args
+                //     .Add("/p:CollectCoverage=true")
+                //     .Add("/p:CoverletOutputFormat=cobertura"))
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
