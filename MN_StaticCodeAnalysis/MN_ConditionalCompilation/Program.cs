@@ -1,5 +1,4 @@
 ﻿
-
 Console.WriteLine(TestNamespace.CTestNamespaceName);
 
 internal static class TestNamespace
