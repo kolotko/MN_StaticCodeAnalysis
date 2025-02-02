@@ -17,11 +17,16 @@ using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 
+// okazało się że jest problem z tą konfiguracją
+// i nie da się, (albo na moment tworzenia tego nie jest to jasno opisane),
+// w łatwy sposób skonfigurowac rozszerzeń np do wyświetlenia raportu z testów.
+// Dlatego pierwsza wersja zostało wygenerowana ta wtyczką, a następnie wyłączyłęm automatyczne generowanie i dopisałem kilka kroków ręcznie
 [GitHubActions(
     "build-and-test", 
     GitHubActionsImage.WindowsLatest, 
     OnPushBranches = new []{"master"}, 
-    ImportSecrets = new[] { nameof(ExampleSecret) })]
+    ImportSecrets = new[] { nameof(ExampleSecret) },
+    AutoGenerate = false)]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -77,9 +82,19 @@ class Build : NukeBuild
             DotNetTest(s => s
                 .SetProjectFile(testProject)
                 .SetConfiguration(Configuration)
+                .AddLoggers("--logger \"trx;LogFileName=test-results.trx\"")
                 .SetProcessArgumentConfigurator(args => args
-                    // .Add("--logger:teamcity")
-                )
+                    // .Add("/p:CollectCoverage=true")
+                    // .Add("/p:CoverletOutputFormat=cobertura")
+                    // .Add("/maxcpucount:1")
+                    // .Add($"/p:MergeWith={TestCoverageDirectory}/coverage.temp.json")
+                    // .Add($"/p:CoverletOutput={TestCoverageDirectory}/coverage.temp.json")
+                    // .Add($"/p:CoverletOutput={TestCoverageDirectory}/coverage.xml")
+                    // .Add("/p:CoverletOutputFormat=cobertura")
+                    // .Add("/p:Threshold=90")
+                    // .Add("/p:ThresholdType=line")
+                    // .Add($"/p:Include=\"{TestedModules}\"")
+                    )
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
