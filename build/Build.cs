@@ -77,6 +77,9 @@ class Build : NukeBuild
             DotNetTest(s => s
                 .SetProjectFile(testProject)
                 .SetConfiguration(Configuration)
+                .SetProcessArgumentConfigurator(args => args
+                    .Add("--logger:teamcity")
+                )
                 .EnableNoRestore()
                 .EnableNoBuild());
         });
