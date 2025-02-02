@@ -82,7 +82,7 @@ class Build : NukeBuild
             DotNetTest(s => s
                 .SetProjectFile(testProject)
                 .SetConfiguration(Configuration)
-                .AddLoggers("--logger \"trx;LogFileName=test-results.trx\"")
+                .AddLoggers("trx;LogFileName=test-results.trx")
                 .SetProcessArgumentConfigurator(args => args
                     // .Add("/p:CollectCoverage=true")
                     // .Add("/p:CoverletOutputFormat=cobertura")
