@@ -25,6 +25,10 @@ jobs:
 
       - name: Test Report
         uses: dorny/test-reporter@v1
+        permissions:
+          id-token: write
+          contents: read
+          checks: write
         if: success()
         with:
           name: DotNET Tests
