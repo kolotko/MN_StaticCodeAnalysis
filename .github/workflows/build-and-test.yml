@@ -28,6 +28,6 @@ jobs:
         if: success()
         with:
           name: DotNET Tests
-          path: "**/test-results.trx"
+          path: "MN_StaticCodeAnalysis/MN_StaticCodeAnalysis.Tests/TestResults/test-results.trx"
           reporter: dotnet-trx
           fail-on-error: true
