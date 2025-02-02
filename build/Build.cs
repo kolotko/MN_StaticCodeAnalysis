@@ -45,6 +45,8 @@ class Build : NukeBuild
     [Solution] readonly Solution Solution;
     [PathVariable] readonly Tool Git;
     IProcess ApiProcess;
+    
+    static AbsolutePath TestResultFolder => RootDirectory / "TestResults";
 
     Target Clean => _ => _
         .Executes(() =>
@@ -82,7 +84,7 @@ class Build : NukeBuild
             DotNetTest(s => s
                 .SetProjectFile(testProject)
                 .SetConfiguration(Configuration)
-                .AddLoggers("trx;LogFileName=test-results.trx")
+                .AddLoggers($"trx;LogFileName={TestResultFolder}/test-results.trx")
                 .SetProcessArgumentConfigurator(args => args
                     // .Add("/p:CollectCoverage=true")
                     // .Add("/p:CoverletOutputFormat=cobertura")
