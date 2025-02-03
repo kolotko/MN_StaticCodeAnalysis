@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch: # Pozwala na ręczne uruchomienie
 
 permissions:
   id-token: write
@@ -36,3 +37,7 @@ jobs:
           path: "TestResults/test-results.trx"
           reporter: dotnet-trx
           fail-on-error: true
+
+      - name: Deploy only if manually triggered
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "Manual step triggered"
