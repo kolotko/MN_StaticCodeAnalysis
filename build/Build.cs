@@ -85,7 +85,7 @@ class Build : NukeBuild
                 .SetProjectFile(testProject)
                 .SetConfiguration(Configuration)
                 .AddLoggers($"trx;LogFileName={TestResultFolder}/test-results.trx")
-                .AddLoggers($"teamcity")
+                // .AddLoggers($"teamcity") -- ostatni logger tylko się liczy, tak więc by działał pipeline na git wyłączam ten
                 // .SetProcessArgumentConfigurator(args => args
                 //     .Add("/p:CollectCoverage=true")
                 //     .Add("/p:CoverletOutputFormat=cobertura"))
