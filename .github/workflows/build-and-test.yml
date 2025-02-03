@@ -12,7 +12,7 @@ permissions:
   checks: write
 
 jobs:
-  windows-latest:
+  build:
     name: windows-latest
     runs-on: windows-latest
     steps:
@@ -41,3 +41,10 @@ jobs:
       - name: Deploy only if manually triggered
         if: github.event_name == 'workflow_dispatch'
         run: echo "Manual step triggered"
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch' # Uruchamia się tylko ręcznie
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to environment
+        run: echo "Deploying now..."
